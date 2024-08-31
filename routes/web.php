@@ -20,11 +20,13 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 Route::get('/checkout/success', 'CheckoutController@success')->name('checkout-success');
 
 Route::prefix('admin')
-->namespace('Admin')
-->middleware(['auth', 'admin'])
-->group(function(){
-Route::get('/', 'DashboardController@index' )->name('dashboard');
-});
+    ->namespace('Admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+        Route::get('/', 'DashboardController@index')
+            ->name('dashboard');
+
+        Route::resource('travel-package', 'TravelPackageController');
+    });
 
 Auth::routes(['verify' => true]);
-
