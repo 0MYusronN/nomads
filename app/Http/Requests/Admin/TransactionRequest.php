@@ -24,7 +24,7 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'transaction_status' => 'required|string|in:IN_CART,PENDING,CANCEL,FAILED'
+            'transaction_status' => 'required|string|in:IN_CART,PENDING,CANCEL,SUCCESS,FAILED'
         ];
     }
 }
